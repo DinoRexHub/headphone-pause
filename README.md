@@ -27,9 +27,10 @@ Installation Instructions
 2. Open a terminal in that folder and run:<br><br>
 
 bash:
+-----
 
-sudo apt install playerctl libnotify-bin
-chmod +x install.sh  
+sudo apt install playerctl libnotify-bin<br>
+chmod +x install.sh<br<  
 ./install.sh<br>
 
 This will:
