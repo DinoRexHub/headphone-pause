@@ -19,5 +19,5 @@ Installation:
 
 in terminal:
 
-git clone https://github.com/YOUR_USERNAME/headphone-pause.git
+git clone https://github.com/DinoRexHub/headphone-pause.git
 cd headphonepause
