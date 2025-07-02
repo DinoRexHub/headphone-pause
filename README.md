@@ -18,7 +18,7 @@ Features
 Installation Instructions
 -------------------------
 
-#1. Clone the Repository<br>
+#1. Clone the Repository<br><br>
 
 Open a terminal and run:
 
