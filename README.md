@@ -18,7 +18,7 @@ Features
 Installation Instructions
 -------------------------
 
-1. Clone the Repository
+#1. Clone the Repository
 
 Open a terminal and run:
 
@@ -29,7 +29,7 @@ Replace `YOUR_USERNAME` with your actual GitHub username.
 
 
 
-2. Install the GNOME Extension
+#2. Install the GNOME Extension
 
 Copy the extension folder to the GNOME extensions directory:
 
@@ -38,7 +38,7 @@ cp -r headphonepause@gnome ~/.local/share/gnome-shell/extensions/
 
 
 
-3. Install the Background Script
+#3. Install the Background Script
 
 Copy the headphone detection script to your `~/bin` directory and make it executable:
 
@@ -48,7 +48,7 @@ chmod +x ~/bin/headphone-pause.sh
 
 
 
-4. Create the systemd User Service
+#4. Create the systemd User Service
 
 Create a systemd service file to run the headphone detection script in the background:
 
@@ -70,7 +70,7 @@ Replace `/home/YOUR_USERNAME` with your actual home directory path and `1000` wi
 
 
 
-5. Enable and Start the systemd Service
+#5. Enable and Start the systemd Service
 
 Reload systemd and start the service:
 
@@ -79,7 +79,7 @@ systemctl --user enable headphone-pause.service
 systemctl --user start headphone-pause.service
 
 
-6. Enable the GNOME Extension
+#6. Enable the GNOME Extension
 
 Enable your extension with:
 
@@ -87,7 +87,7 @@ gnome-extensions enable headphonepause@gnome
 
 
 
-7. Restart GNOME Shell
+#7. Restart GNOME Shell
 
 - On X11: Press Alt + F2, type r, then press Enter
 - On Wayland: Log out and log back in
