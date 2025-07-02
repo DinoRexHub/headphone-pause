@@ -1,5 +1,4 @@
-const { St, Gio, GLib } = imports.gi;
-const Main = imports.ui.main;
+const { GObject, St, Gio, GLib } = imports.gi;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 const { MessageTray, Notification } = imports.ui.messageTray;
