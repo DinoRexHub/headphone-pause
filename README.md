@@ -27,12 +27,16 @@ cd headphonepause
 
 Replace `YOUR_USERNAME` with your actual GitHub username.
 
+
+
 2. Install the GNOME Extension
 
 Copy the extension folder to the GNOME extensions directory:
 
 mkdir -p ~/.local/share/gnome-shell/extensions/
 cp -r headphonepause@gnome ~/.local/share/gnome-shell/extensions/
+
+
 
 3. Install the Background Script
 
@@ -41,6 +45,8 @@ Copy the headphone detection script to your `~/bin` directory and make it execut
 mkdir -p ~/bin
 cp headphone-pause.sh ~/bin/
 chmod +x ~/bin/headphone-pause.sh
+
+
 
 4. Create the systemd User Service
 
@@ -62,6 +68,8 @@ WantedBy=default.target
 
 Replace `/home/YOUR_USERNAME` with your actual home directory path and `1000` with your user ID (`id -u`).
 
+
+
 5. Enable and Start the systemd Service
 
 Reload systemd and start the service:
@@ -70,11 +78,14 @@ systemctl --user daemon-reload
 systemctl --user enable headphone-pause.service
 systemctl --user start headphone-pause.service
 
+
 6. Enable the GNOME Extension
 
 Enable your extension with:
 
 gnome-extensions enable headphonepause@gnome
+
+
 
 7. Restart GNOME Shell
 
