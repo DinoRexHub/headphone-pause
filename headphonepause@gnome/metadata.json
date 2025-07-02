@@ -1,5 +1,5 @@
 {
-  "uuid": "headphonepause@gnome",
+  "uuid": "headphone-pause@gnome",
   "name": "Headphone Pause",
   "description": "Pause and mute audio when headphones unplug",
   "version": 1,
