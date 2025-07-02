@@ -18,91 +18,29 @@ Features
 Installation Instructions
 -------------------------
 
-#1. Clone the Repository<br><br>
+1. Download the following files and place them in the same folder:<br><br>
 
-Open a terminal and run:
+- headphone-pause.sh  
+- install.sh  
+- headphone-pause@gnome (folder containing metadata.json and extension.js)<br><br><br>
 
-git clone https://github.com/YOUR_USERNAME/headphonepause.git
-cd headphonepause
+2. Open a terminal in that folder and run:<br><br>
 
-Replace `YOUR_USERNAME` with your actual GitHub username.<br><br><br>
+chmod +x install.sh  
+./install.sh<br>
 
+This will:
+- Copy the headphone-pause.sh script to your ~/bin directory  
+- Create and enable the systemd service  
+- Enable the GNOME Shell extension  <br><br><br>
 
+3. Restart GNOME Shell:<br><br>
 
-#2. Install the GNOME Extension<br><br>
+- On X11: press Alt + F2, type r, press Enter  
+- On Wayland: log out and log back in  <br><br><br>
 
-Copy the extension folder to the GNOME extensions directory:
+That’s it. Headphones will now auto-pause and mute on unplug.<br><br>
 
-mkdir -p ~/.local/share/gnome-shell/extensions/
-cp -r headphonepause@gnome ~/.local/share/gnome-shell/extensions/<br><br><br>
-
-
-
-#3. Install the Background Script<br><br>
-
-Copy the headphone detection script to your `~/bin` directory and make it executable:
-
-mkdir -p ~/bin
-cp headphone-pause.sh ~/bin/
-chmod +x ~/bin/headphone-pause.sh<br><br><br>
-
-
-
-#4. Create the systemd User Service<br><br>
-
-Create a systemd service file to run the headphone detection script in the background:
-
-Create the file `~/.config/systemd/user/headphone-pause.service` with the following content:
-
-[Unit]
-Description=Pause audio when headphones unplug
-
-[Service]
-ExecStart=/home/YOUR_USERNAME/bin/headphone-pause.sh
-Restart=on-failure
-Environment=DISPLAY=:0
-Environment=XDG_RUNTIME_DIR=/run/user/1000
-
-[Install]
-WantedBy=default.target
-
-Replace `/home/YOUR_USERNAME` with your actual home directory path and `1000` with your user ID (`id -u`).<br><br><br>
-
-
-
-#5. Enable and Start the systemd Service<br><br>
-
-Reload systemd and start the service:
-
-systemctl --user daemon-reload
-systemctl --user enable headphone-pause.service
-systemctl --user start headphone-pause.service
-
-
-#6. Enable the GNOME Extension
-
-Enable your extension with:
-
-gnome-extensions enable headphonepause@gnome<br><br><br>
-
-
-
-#7. Restart GNOME Shell<br><br>
-
-- On X11: Press Alt + F2, type r, then press Enter
-- On Wayland: Log out and log back in
-
-Requirements
-------------
-
-- `playerctl` – for media control  
-- `libnotify-bin` – for notifications  
-- GNOME Shell 42 or higher  
-- PulseAudio or PipeWire
-
-Install dependencies with:
-
-sudo apt install playerctl libnotify-bin
 
 Tested On
 ---------
@@ -111,13 +49,4 @@ Tested On
 - Pop!_OS 22.04  
 - Dell Precision 5550
 
-File Structure
---------------
-
-headphonepause/
-├── headphonepause@gnome/       # GNOME extension code
-│   ├── extension.js
-│   ├── metadata.json
-├── headphone-pause.sh          # Headphone detection and pause script
-├── README.md                   # This file
 
