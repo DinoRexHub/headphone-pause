@@ -30,7 +30,7 @@ bash:
 -----
 
 sudo apt install playerctl libnotify-bin<br>
-chmod +x install.sh<br<  
+chmod +x install.sh<br> 
 ./install.sh<br>
 
 This will:
