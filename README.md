@@ -25,30 +25,30 @@ Open a terminal and run:
 git clone https://github.com/YOUR_USERNAME/headphonepause.git
 cd headphonepause
 
-Replace `YOUR_USERNAME` with your actual GitHub username.
+Replace `YOUR_USERNAME` with your actual GitHub username.<br><br><br>
 
 
 
-#2. Install the GNOME Extension
+#2. Install the GNOME Extension<br><br>
 
 Copy the extension folder to the GNOME extensions directory:
 
 mkdir -p ~/.local/share/gnome-shell/extensions/
-cp -r headphonepause@gnome ~/.local/share/gnome-shell/extensions/
+cp -r headphonepause@gnome ~/.local/share/gnome-shell/extensions/<br><br><br>
 
 
 
-#3. Install the Background Script
+#3. Install the Background Script<br><br>
 
 Copy the headphone detection script to your `~/bin` directory and make it executable:
 
 mkdir -p ~/bin
 cp headphone-pause.sh ~/bin/
-chmod +x ~/bin/headphone-pause.sh
+chmod +x ~/bin/headphone-pause.sh<br><br><br>
 
 
 
-#4. Create the systemd User Service
+#4. Create the systemd User Service<br><br>
 
 Create a systemd service file to run the headphone detection script in the background:
 
@@ -66,11 +66,11 @@ Environment=XDG_RUNTIME_DIR=/run/user/1000
 [Install]
 WantedBy=default.target
 
-Replace `/home/YOUR_USERNAME` with your actual home directory path and `1000` with your user ID (`id -u`).
+Replace `/home/YOUR_USERNAME` with your actual home directory path and `1000` with your user ID (`id -u`).<br><br><br>
 
 
 
-#5. Enable and Start the systemd Service
+#5. Enable and Start the systemd Service<br><br>
 
 Reload systemd and start the service:
 
@@ -83,11 +83,11 @@ systemctl --user start headphone-pause.service
 
 Enable your extension with:
 
-gnome-extensions enable headphonepause@gnome
+gnome-extensions enable headphonepause@gnome<br><br><br>
 
 
 
-#7. Restart GNOME Shell
+#7. Restart GNOME Shell<br><br>
 
 - On X11: Press Alt + F2, type r, then press Enter
 - On Wayland: Log out and log back in
