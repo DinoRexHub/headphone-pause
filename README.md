@@ -3,7 +3,7 @@ Headphone Pause – GNOME Extension
 
 A lightweight GNOME Shell extension that automatically pauses and mutes audio when headphones are unplugged, and resumes/unmutes when plugged back in.
 
-Perfect for avoiding unwanted audio blasting through speakers.
+Perfect for avoiding unwanted audio blasting through speakers, and it only takes 3 simple steps to install.
 
 Features
 --------
@@ -26,6 +26,9 @@ Installation Instructions
 
 2. Open a terminal in that folder and run:<br><br>
 
+bash:
+
+sudo apt install playerctl libnotify-bin
 chmod +x install.sh  
 ./install.sh<br>
 
