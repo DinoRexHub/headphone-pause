@@ -1,24 +1,23 @@
-const { GObject, St, Gio, GLib } = imports.gi;
+const { GObject, St, GLib } = imports.gi;
+const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
-const { MessageTray, Notification } = imports.ui.messageTray;
+const MessageTray = imports.ui.messageTray;
 
+var HeadphonePauseExtension = GObject.registerClass(
 class HeadphonePauseExtension extends PanelMenu.Button {
-    constructor() {
-        super(0.0, "Headphone Pause");
+    _init() {
+        super._init(0.0, "Headphone Pause");
 
-        // Add symbolic icon
         this.icon = new St.Icon({
             icon_name: 'audio-headphones-symbolic',
             style_class: 'system-status-icon',
         });
         this.add_child(this.icon);
 
-        // Create notification source
-        this._source = new MessageTray.SystemNotificationSource();
+        this._source = new MessageTray.Source("Headphone Pause", 'audio-headphones-symbolic');
         Main.messageTray.add(this._source);
 
-        // Toggle switch
         this._toggle = new PopupMenu.PopupSwitchMenuItem("Pause audio on unplug", false);
         this._toggle.connect('toggled', (item, state) => {
             this._togglePause(state);
@@ -27,8 +26,8 @@ class HeadphonePauseExtension extends PanelMenu.Button {
     }
 
     _showNotification(title, body) {
-        let notification = new Notification(this._source, title, body);
-        this._source.showNotification(notification);
+        let notification = new MessageTray.Notification(this._source, title, { body: body });
+        this._source.notify(notification);
     }
 
     _togglePause(enabled) {
@@ -53,7 +52,7 @@ class HeadphonePauseExtension extends PanelMenu.Button {
         Main.messageTray.remove(this._source);
         super.destroy();
     }
-}
+});
 
 let headphonePause;
 
@@ -70,4 +69,3 @@ function disable() {
         headphonePause = null;
     }
 }
-
