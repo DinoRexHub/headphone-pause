@@ -42,6 +42,7 @@ This will:
 
 - On X11: press Alt + F2, type r, press Enter  
 - On Wayland: log out and log back in  <br><br><br>
+- Or just lougout and log back in.
 
 That’s it. Headphones will now auto-pause and mute on unplug.<br><br>
 
