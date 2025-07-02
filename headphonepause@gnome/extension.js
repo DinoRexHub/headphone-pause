@@ -49,7 +49,7 @@ class HeadphonePauseExtension extends PanelMenu.Button {
 
     destroy() {
         this.menu.removeAll();
-        Main.messageTray.remove(this._source);
+        //Main.messageTray.remove(this._source);
         super.destroy();
     }
 });
